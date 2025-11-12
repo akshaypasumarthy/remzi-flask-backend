@@ -1,4 +1,5 @@
-pip install Flask
-pip install SQLAlchemy
-pip install cors
-pip install Flask-RESTful
+Flask
+SQLAlchemy
+Flask-Cors
+Flask-RESTful
+gunicorn
