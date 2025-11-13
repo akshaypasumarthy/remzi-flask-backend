@@ -22,7 +22,7 @@ DB_CONFIG = {
     'port': 3306,
     'user': 'sql7807469',
     'password': '57pFPQ4aNM',
-    'database': 'sql7807469
+    'database': 'sql7807469'
 }
 
 app.config['SQLALCHEMY_DATABASE_URI'] = (
