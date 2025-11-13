@@ -18,11 +18,11 @@ CORS(app, resources={
 })
 
 DB_CONFIG = {
-    'host': 'localhost',
+    'host': 'sql7.freesqldatabase.com',
     'port': 3306,
-    'user': 'root',
-    'password': 'root',
-    'database': 'user_management'
+    'user': 'sql7807469',
+    'password': '57pFPQ4aNM',
+    'database': 'sql7807469
 }
 
 app.config['SQLALCHEMY_DATABASE_URI'] = (
@@ -46,7 +46,7 @@ class Admin(db.Model):
     full_name = db.Column(db.String(100), nullable=False)
     email_address = db.Column(db.String(100), unique=True, nullable=False, index=True)
     phone_number = db.Column(db.String(20), nullable=True)
-    password  = db.Column(db.String(20),nullable = False,unique = True)
+    password  = db.Column(db.String(20),nullable = False)
     
     def to_dict(self):
         return {"id":self.id,
