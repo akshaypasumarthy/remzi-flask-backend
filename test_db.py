@@ -36,7 +36,7 @@ CORS(app, resources={
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # app.config['SQLALCHEMY_ECHO'] = True
 
-USER=postgres.boqfwfmwdrfnozlgpfpi 
+USER="postgres.boqfwfmwdrfnozlgpfpi" 
 PASSWORD=root
 HOST="aws-1-eu-west-1.pooler.supabase.com"
 PORT=5432 
