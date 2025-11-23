@@ -27,13 +27,7 @@ CORS(app, resources={
 #     'password': '57pFPQ4aNM',
 #     'database': 'sql7807469'
 # }
-DB_CONFIG = {
-    'host': 'sql7.freesqldatabase.com',
-    'port': 3306,
-    'user': 'sql7807469',
-    'password': '57pFPQ4aNM',
-    'database': 'sql7807469'
-}
+
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = (
 #     f"mysql+pymysql://{DB_CONFIG['user']}:{DB_CONFIG['password']}"
