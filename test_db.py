@@ -4,7 +4,10 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Api
 from flask_cors import CORS
 import os
+from sqlalchemy import create_engine
+from dotenv import load_dotenv
 
+load_dotenv()
 app = Flask(__name__)
 
 # Configure CORS properly for Angular frontend
@@ -17,20 +20,40 @@ CORS(app, resources={
     }
 })
 
-DB_CONFIG = {
-    'host': 'sql7.freesqldatabase.com',
-    'port': 3306,
-    'user': 'sql7807469',
-    'password': '57pFPQ4aNM',
-    'database': 'sql7807469'
-}
+# DB_CONFIG = {
+#     'host': 'sql7.freesqldatabase.com',
+#     'port': 3306,
+#     'user': 'sql7807469',
+#     'password': '57pFPQ4aNM',
+#     'database': 'sql7807469'
+# }
 
-app.config['SQLALCHEMY_DATABASE_URI'] = (
-    f"mysql+pymysql://{DB_CONFIG['user']}:{DB_CONFIG['password']}"
-    f"@{DB_CONFIG['host']}:{DB_CONFIG['port']}/{DB_CONFIG['database']}"
-)
+# app.config['SQLALCHEMY_DATABASE_URI'] = (
+#     f"mysql+pymysql://{DB_CONFIG['user']}:{DB_CONFIG['password']}"
+#     f"@{DB_CONFIG['host']}:{DB_CONFIG['port']}/{DB_CONFIG['database']}"
+# )
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.config['SQLALCHEMY_ECHO'] = True
+
+USER = os.getenv("USER")
+PASSWORD = os.getenv("PASSWORD")
+HOST = os.getenv("HOST")
+PORT = os.getenv("PORT")
+DBNAME = os.getenv("DBNAME")
+DATABASE_URL = f"postgresql+psycopg2://{USER}:{PASSWORD}@{HOST}:{PORT}/{DBNAME}?sslmode=require"
+
+engine = create_engine(DATABASE_URL)
+
+try:
+    with engine.connect() as connection:
+        print("Connection successful!")
+except Exception as e:
+    print(f"Failed to connect: {e}")
+# Apply to Flask-SQLAlchemy
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_ECHO'] = True
+# Optional: show SQL statements in logs if helpful
+app.config['SQLALCHEMY_ECHO'] = False
 
 db = SQLAlchemy(app)
 api = Api(app)
@@ -379,6 +402,6 @@ if __name__ == "__main__":
     with app.app_context():
         db.create_all()
         print("✓ Database tables created")
-    app.run(debug=True)
+    port = int(os.environ.get('PORT',5000))
+    app.run(host = '0.0.0.0',port = port,debug=False)
     
-
