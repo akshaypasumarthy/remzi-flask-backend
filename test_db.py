@@ -216,7 +216,8 @@ def create_admin():
             'success': False,
             'error': f'Database error: {str(e)}'
         }), 500
-
+ 
+ 
 @app.route('/api/all_reviews', methods=['GET'])
 def get_all_reviews():
     try:
