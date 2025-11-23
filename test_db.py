@@ -37,10 +37,10 @@ CORS(app, resources={
 # app.config['SQLALCHEMY_ECHO'] = True
 
 USER="postgres.boqfwfmwdrfnozlgpfpi" 
-PASSWORD=root
+PASSWORD="root"
 HOST="aws-1-eu-west-1.pooler.supabase.com"
-PORT=5432 
-DBNAME=postgres
+PORT="5432" 
+DBNAME="postgres"
 DATABASE_URL = os.getenv("DATABASE_URL")
 if not DATABASE_URL:
     DATABASE_URL = f"postgresql+psycopg://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}?sslmode=require"
