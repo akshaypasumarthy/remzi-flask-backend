@@ -38,7 +38,7 @@ CORS(app, resources={
 
 USER=postgres.boqfwfmwdrfnozlgpfpi 
 PASSWORD=root
-HOST=aws-1-eu-west-1.pooler.supabase.com 
+HOST="aws-1-eu-west-1.pooler.supabase.com"
 PORT=5432 
 DBNAME=postgres
 DATABASE_URL = os.getenv("DATABASE_URL")
