@@ -13,7 +13,7 @@ app = Flask(__name__)
 # Configure CORS properly for Angular frontend
 CORS(app, resources={
     r"/api/*": {
-        "origins": ["http://localhost:4200", "http://127.0.0.1:4200"],
+        "origins": ["https://akshaypasumarthy.github.io/Remzi-main-front-end/"],
         "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         "allow_headers": ["Content-Type", "Authorization"],
         "supports_credentials": True
@@ -27,14 +27,6 @@ CORS(app, resources={
 #     'password': '57pFPQ4aNM',
 #     'database': 'sql7807469'
 # }
-DB_CONFIG = {
-    'host': 'sql7.freesqldatabase.com',
-    'port': 3306,
-    'user': 'sql7807469',
-    'password': '57pFPQ4aNM',
-    'database': 'sql7807469'
-}
-
 # app.config['SQLALCHEMY_DATABASE_URI'] = (
 #     f"mysql+pymysql://{DB_CONFIG['user']}:{DB_CONFIG['password']}"
 #     f"@{DB_CONFIG['host']}:{DB_CONFIG['port']}/{DB_CONFIG['database']}"
@@ -379,7 +371,7 @@ def customers_review():
     if request.method == 'OPTIONS':
         # Handle preflight request
         response = jsonify({'status': 'ok'})
-        response.headers.add('Access-Control-Allow-Origin', 'http://localhost:4200')
+        response.headers.add('Access-Control-Allow-Origin', 'https://akshaypasumarthy.github.io/Remzi-main-front-end/')
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
         response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
         return response, 200
