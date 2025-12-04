@@ -13,7 +13,7 @@ app = Flask(__name__)
 # Configure CORS properly for Angular frontend
 CORS(app, resources={
     r"/api/*": {
-        "origins": ["https://akshaypasumarthy.github.io/Remzi-main-front-end/"],
+        "origins": ["https://akshaypasumarthy.github.io/Remzi-main-front-end","https://akshaypasumarthy.github.io"],
         "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         "allow_headers": ["Content-Type", "Authorization"],
         "supports_credentials": True
