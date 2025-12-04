@@ -34,12 +34,16 @@ CORS(app, resources={
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # app.config['SQLALCHEMY_ECHO'] = True
 
-USER = os.getenv("USER")
-PASSWORD = os.getenv("PASSWORD")
-HOST = os.getenv("HOST")
-PORT = os.getenv("PORT")
-DBNAME = os.getenv("DBNAME")
-DATABASE_URL = f"postgresql+psycopg2://{USER}:{PASSWORD}@{HOST}:{PORT}/{DBNAME}?sslmode=require"
+USER="postgres.boqfwfmwdrfnozlgpfpi" 
+PASSWORD="root"
+HOST="aws-1-eu-west-1.pooler.supabase.com"
+PORT="5432" 
+DBNAME="postgres"
+DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    DATABASE_URL = f"postgresql+psycopg://{USER}:{PASSWORD}@{HOST}:{PORT}/{DBNAME}?sslmode=require"
+
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 
 engine = create_engine(DATABASE_URL)
 
